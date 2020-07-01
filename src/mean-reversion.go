@@ -210,13 +210,13 @@ func (alp alpacaClientContainer) submitLimitOrder(qty int, symbol string, price 
 			LimitPrice:  &limPrice,
 			TimeInForce: "day",
 		})
-		if err == nil {
-			fmt.Printf("Limit order of | %d %s %s | sent.\n", qty, symbol, side)
-		} else {
+		if err != nil {
 			fmt.Printf("Order of | %d %s %s | did not go through.\n", qty, symbol, side)
+			return err
 		}
+		fmt.Printf("Limit order of | %d %s %s | sent.\n", qty, symbol, side)
 		alpacaClient.lastOrder = order.ID
-		return err
+		return nil
 	}
 	fmt.Printf("Quantity is <= 0, order of | %d %s %s | not sent.\n", qty, symbol, side)
 	return nil
