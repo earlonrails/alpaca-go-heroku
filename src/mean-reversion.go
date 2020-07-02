@@ -114,8 +114,9 @@ func (alp alpacaClientContainer) run() {
 			alp.submitMarketOrder(int(qty), position.Symbol, orderSide)
 		}
 		// Run script again after market close for next trading day.
-		fmt.Println("Sleeping until market close (15 minutes).")
-		time.Sleep(15 * time.Minute)
+		fmt.Println("Market close in (15 minutes).")
+		fmt.Println("Shutting down.")
+		os.Exit(0)
 	} else {
 		// Rebalance the portfolio.
 		alp.rebalance()
