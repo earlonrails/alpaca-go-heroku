@@ -36,9 +36,9 @@ func init() {
 	alpaca.SetBaseUrl(BASE_URL)
 
 	// Check if user input a stock, default is AAPL
-	stock := "AAPL"
-	if len(os.Args[1:]) == 1 {
-		stock = os.Args[1]
+	stock := os.Getenv("STOCK")
+	if len(stock) == 0 {
+		stock = "AAPL"
 	}
 	alpacaClient = alpacaClientContainer{
 		alpaca.NewClient(common.Credentials()),
