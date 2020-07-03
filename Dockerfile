@@ -6,7 +6,7 @@ COPY ./src/go.mod .
 COPY ./src/go.sum .
 RUN go mod download
 COPY ./src .
-RUN go build -o main mean-reversion.go
+RUN go build -o main main.go
 
 # ---- Release ----
 FROM golang:1.14-alpine
