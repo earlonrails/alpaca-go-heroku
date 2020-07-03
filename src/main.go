@@ -34,9 +34,9 @@ func init() {
 	}
 
 	base_url, base_url_exists := os.LookupEnv("BASE_URL")
-  if !base_url_exists {
-      base_url = "https://paper-api.alpaca.markets"
-  }
+  	if !base_url_exists {
+      		base_url = "https://paper-api.alpaca.markets"
+  	}
 	alpaca.SetBaseUrl(base_url)
 
 	stock, stock_exists := os.LookupEnv("STOCK")
