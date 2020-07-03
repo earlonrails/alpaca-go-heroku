@@ -1,5 +1,4 @@
 # Alpaca Go Heroku
----
 
 ### Usage
 
